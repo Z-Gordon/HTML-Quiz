@@ -1,4 +1,49 @@
 <!DOCTYPE html>
 <html>
-    
+<head>
+	<title>My Fruit Quiz</title>
+	<link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+	<form>
+		<h1 id="title">Fruit Quiz</h1>
+		<!-- QUESTION 1-->
+		<div>
+			<label for="q1">1) This fruit is yellow and curved.</label>
+			<input type="text" id="q1" name="q1">
+		</div><br>
+		<!-- QUESTION 2-->
+		<div>
+			<label for="q2">2) This fruit's name rhymes with "shape".</label>
+			<input type="text" id="q2" name="q2">
+		</div><br>
+		<!-- QUESTION 3-->
+		<label for="q3">3) Select all fruits.</label>
+		<div id="q3">
+			<input type="checkbox" id="c1" name="a">
+			<label for="c1">a) Oranges</label><br>
+			<input type="checkbox" id="c2" name="b">
+			<label for="c2">b) Tomatos</label><br>
+			<input type="checkbox" id="c3" name="c">
+			<label for="c3">c) Lettuce</label><br>
+			<input type="checkbox" id="c4" name="d">
+			<label for="c4">d) Apples</label>
+		</div><br>
+		<!-- QUESTION 4-->
+		<label for="q4">4) Pineapples are Yellow.</label>
+		<div id="q4">
+			<input type="radio" id="true" name="radioq4">
+			<label for="true" class="option">True</label><br>
+			<input type="radio" id="false" name="radioq4">
+			<label for="false" class="option">False</label><br>
+			<input type="radio" id="dontknow" name="radioq4">
+			<label for="dontknow" class="option">Don't know?</label><br>
+		</div><br>
+		<button type="button">Submit!</button>
+		<div>
+			<img src="images/fruit.png" id="fruitsphoto" width="300" height="250"><br>
+			<label for="fruitsphoto">This is an image of fruits.</label>
+		</div>
+	</form>
+</body>
 </html>
