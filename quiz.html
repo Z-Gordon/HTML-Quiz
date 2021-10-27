@@ -2,11 +2,14 @@
 <html>
 <head>
 	<title>My Fruit Quiz</title>
-	<link rel="stylesheet" href="styles.css" type="text/css">
+	<link rel="stylesheet" href="fruits.css" type="text/css">
 </head>
 <body>
 	<form>
 		<h1 id="title">Fruit Quiz</h1>
+		<p>
+			Welcome to a quiz about fruits!
+		</p>
 		<!-- QUESTION 1-->
 		<div>
 			<label for="q1">1) This fruit is yellow and curved.</label>
@@ -30,7 +33,7 @@
 			<label for="c4">d) Apples</label>
 		</div><br>
 		<!-- QUESTION 4-->
-		<label for="q4">4) Pineapples are Yellow.</label>
+		<label class="yellow" for="q4">4) Pineapples are Yellow.</label>
 		<div id="q4">
 			<input type="radio" id="true" name="radioq4">
 			<label for="true" class="option">True</label><br>
@@ -41,8 +44,8 @@
 		</div><br>
 		<button type="button">Submit!</button>
 		<div>
-			<img src="images/fruit.png" id="fruitsphoto" width="300" height="250"><br>
-			<label for="fruitsphoto">This is an image of fruits.</label>
+			<img src="images/grass.jpg" id="photo1" alt="lawn full of grass" width="300" height="250"><br>
+			<label for="photo1">I should touch some grass.</label>
 		</div>
 	</form>
 </body>

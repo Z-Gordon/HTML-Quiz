@@ -1,0 +1,32 @@
+body {
+    color: purple;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 150%;
+    background-image: url("images/fruitbg.jpeg");
+    text-align: center;
+}
+
+h1 {
+    color: green;
+    background-color: lightgoldenrodyellow;
+}
+
+label {
+    color: darkred;
+    background-color: lightsalmon;
+}
+
+img {
+    border: 12px solid maroon;
+    text-align: left;
+}
+
+button {
+    outline: 10px solid lightpink;
+    border: 10px solid lightgreen;
+}
+
+.yellow {
+    color: yellow;
+}
+
