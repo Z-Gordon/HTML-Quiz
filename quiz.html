@@ -5,22 +5,20 @@
 	<link rel="stylesheet" href="fruits.css" type="text/css">
 </head>
 <body>
-	<form>
-		<h1 id="title">Fruit Quiz</h1>
-		<p>
-			Welcome to a quiz about fruits!
-		</p>
-		<!-- QUESTION 1-->
+	<h1 id="title">Fruit Quiz</h1>
+	<p>
+		Welcome to a quiz about fruits!
+	</p>
+	<p id="result">score: 0</p>
+	<form name="quiz">
 		<div>
 			<label for="q1">1) This fruit is yellow and curved.</label>
 			<input type="text" id="q1" name="q1">
 		</div><br>
-		<!-- QUESTION 2-->
 		<div>
 			<label for="q2">2) This fruit's name rhymes with "shape".</label>
 			<input type="text" id="q2" name="q2">
 		</div><br>
-		<!-- QUESTION 3-->
 		<label for="q3">3) Select all fruits.</label>
 		<div id="q3">
 			<input type="checkbox" id="c1" name="a">
@@ -32,17 +30,17 @@
 			<input type="checkbox" id="c4" name="d">
 			<label for="c4">d) Apples</label>
 		</div><br>
-		<!-- QUESTION 4-->
 		<label class="yellow" for="q4">4) Pineapples are Yellow.</label>
 		<div id="q4">
-			<input type="radio" id="true" name="radioq4">
+			<input type="radio" id="q4true" name="radioq4">
 			<label for="true" class="option">True</label><br>
-			<input type="radio" id="false" name="radioq4">
+			<input type="radio" id="q4false" name="radioq4">
 			<label for="false" class="option">False</label><br>
-			<input type="radio" id="dontknow" name="radioq4">
+			<input type="radio" id="q4dontknow" name="radioq4">
 			<label for="dontknow" class="option">Don't know?</label><br>
 		</div><br>
-		<button type="button">Submit!</button>
+		<button type="button" onclick="submitQuiz()">Submit!</button>
+		<script src="script.js"></script>
 		<div>
 			<img src="images/grass.jpg" id="photo1" alt="lawn full of grass" width="300" height="250"><br>
 			<label for="photo1">I should touch some grass.</label>
