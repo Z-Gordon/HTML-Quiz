@@ -3,15 +3,15 @@
 function evalCheckbox(checkboxDiv, correctIds) {
 
     // iterates though a list of ids given and adds them to list of correct elements
-    correctElements = []
+    correctElements = [];
     correctIds.forEach(function(id) {
-        correctElements.push(document.getElementById(id))
+        correctElements.push(document.getElementById(id));
     }); 
 
     totalChecked = Array.from(checkboxDiv.querySelectorAll("input[type='checkbox']:checked"));
 
     // returns true if the checked checkboxes within the div all match the list of correct elements
-    return totalChecked.sort().join(',') == correctElements.sort().join(',')
+    return totalChecked.sort().join(',') == correctElements.sort().join(',');
 }
 
 function submitQuiz(){
@@ -21,20 +21,24 @@ function submitQuiz(){
     var answers = {
         "textbox": {
             "q1": "banana",
-            "q2": "grape"
+            "q2": "grape",
+            "q6": "fruitninja"
         },
         // checkboxes have their value as a list of corrrect element ids
         "checkbox": {
-            "q3": ["c1", "c2", "c4"]
+            "q3": ["q3c1", "q3c2", "q3c4"],
+            "q5": ["q5c1", "q3c4"],
+            "q8": ["q8c2", "q8c3"]
         },
         "radio": {
-            "q4": "q4true"
+            "q4": "q4true",
+            "q7": "q7r4"
         }
-    }
+    };
 
     for (var t in answers["textbox"]) {
-        let ans = document.getElementById(t).value
-        if (ans.toLowerCase() == answers["textbox"][t]) {
+        let ans = document.getElementById(t).value;
+        if (ans.toLowerCase().replace(/ /g, '') == answers["textbox"][t]) {
             score++;
         }
     }
@@ -53,5 +57,5 @@ function submitQuiz(){
     }
 
     //update score element 
-    document.getElementById("result").innerHTML = "score: " + score
+    document.getElementById("result").innerHTML = "score: " + score;
 }
