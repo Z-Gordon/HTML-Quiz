@@ -16,28 +16,42 @@ function evalCheckbox(checkboxDiv, correctIds) {
 
 function submitQuiz(){
     var score = 0;
-    var a1 = document.getElementById("q1");
-    if (a1.value.toLowerCase() == "banana"){
-        score++;
-        a1.getElementByTagName("label").style.backgroundColor = "green";
-    }
-    else {
-        a1.getElementByTagName("label").style.backgroundColor = "red";
+
+    // js dict containing question ids as keys
+    var answers = {
+        "textbox": {
+            "q1": "banana",
+            "q2": "grape"
+        },
+        // checkboxes have their value as a list of corrrect element ids
+        "checkbox": {
+            "q3": ["c1", "c2", "c4"]
+        },
+        "radio": {
+            "q4": "q4true"
+        }
     }
 
-    var a2 = document.getElementById("q2");
-    if (a2.value.toLowerCase() == "grape"){
-        score++;
+    for (var t in answers["textbox"]) {
+        let ans = document.getElementById(t).value
+        if (ans.toLowerCase() == answers["textbox"][t]) {
+            score++;
+        }
     }
 
-    var a3 = document.getElementById("q3");
-    if (evalCheckbox(a3, ["c1", "c2", "c4"])) {
-        score++;
+    for (var c in answers["checkbox"]) {
+        if (evalCheckbox(document.getElementById(c), answers["checkbox"][c])){
+            score++;
+        }
     }
 
-    if (document.getElementById("q4true").checked) {
-        score ++;
+    for (var r in answers["radio"]) {
+        // checks if correct radio is checked 
+        if (document.getElementById(answers["radio"][r]).checked) {
+            score++;
+        }
     }
-    
+
+    //update score element 
     document.getElementById("result").innerHTML = "score: " + score
 }
