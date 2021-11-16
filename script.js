@@ -1,4 +1,4 @@
-
+var score = 0;
 
 function evalCheckbox(checkboxDiv, correctIds) {
 
@@ -15,47 +15,83 @@ function evalCheckbox(checkboxDiv, correctIds) {
 }
 
 function submitQuiz(){
-    var score = 0;
-
-    // js dict containing question ids as keys
+    score = 0;
+    // i guess you could have this as an external json file
+    // and make it private to hide the answers
     var answers = {
-        "textbox": {
-            "q1": "banana",
-            "q2": "grape",
-            "q6": "fruitninja"
+        "q1": {
+            "type": "textbox",
+            "ans": "banana"
         },
-        // checkboxes have their value as a list of corrrect element ids
-        "checkbox": {
-            "q3": ["q3c1", "q3c2", "q3c4"],
-            "q5": ["q5c1", "q3c4"],
-            "q8": ["q8c2", "q8c3"]
+        "q2": {
+            "type": "textbox",
+            "ans": "grape"
         },
-        "radio": {
-            "q4": "q4true",
-            "q7": "q7r4"
-        }
+        "q6": {
+            "type": "textbox",
+            "ans": "fruitninja"
+        },
+        "q3": {
+            "type": "checkbox",
+            "ans": ["q3c1", "q3c2", "q3c4"]
+        },
+        "q5": {
+            "type": "checkbox",
+            "ans": ["q5c1", "q3c4"]
+        },
+        "q8": {
+            "type": "checkbox",
+            "ans": ["q8c2", "q8c3"]
+        },   
+        "q4": {
+            "type": "radio",
+            "ans": "q4true"
+        },
+        "q7": {
+            "type": "radio",
+            "ans": "q7r4"
+        },
     };
 
-    for (var t in answers["textbox"]) {
-        let ans = document.getElementById(t).value;
-        if (ans.toLowerCase().replace(/ /g, '') == answers["textbox"][t]) {
+    for (var a in answers) {
+        let type = answers[a]["type"];
+        let element = document.getElementById(a);
+        let answer = answers[a]["ans"];
+        let isCorrect = false;
+
+        if (type == "textbox" && element.value.toLowerCase().replace(/ /g, '') == answer) {
+            isCorrect = true;
+        }
+        else if (type == "checkbox" && evalCheckbox(element, answer)) {
+            isCorrect = true;
+        }
+        else if (type == "radio" && document.getElementById(answer).checked) {
+            isCorrect = true;
+        }
+
+        if (isCorrect == true) {
             score++;
+            document.querySelector("label[for=" + a + "]").style.color = "green";
+        }
+        else {
+            document.querySelector("label[for=" + a + "]").style.color = "red";
         }
     }
 
-    for (var c in answers["checkbox"]) {
-        if (evalCheckbox(document.getElementById(c), answers["checkbox"][c])){
-            score++;
-        }
-    }
+    max_score = 0
+    for (k in answers) {
+        max_score += Object.values(answers[k]).length;
+    } 
 
-    for (var r in answers["radio"]) {
-        // checks if correct radio is checked 
-        if (document.getElementById(answers["radio"][r]).checked) {
-            score++;
-        }
-    }
-
+    grade = Math.round(score/max_score*100)
     //update score element 
-    document.getElementById("result").innerHTML = "score: " + score;
+    if (grade == 100){
+        document.getElementById("result").innerHTML = `score: ${grade}% Perfect :)`;
+    }
+    else if (grade <= 50){
+        document.getElementById("result").innerHTML = `score: ${grade}% you failed :(`;
+    }
+    else {
+        document.getElementById("result").innerHTML = `score: ${grade}% you passed!`;
+    }
 }

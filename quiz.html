@@ -8,9 +8,9 @@
 <body>
 	<h1 id="title">Fruit Quiz</h1>
 	<p>
-		Welcome to a quiz about fruits!
+		Welcome to a quiz about fruits!<br>
+		Note: Each question number is worth <b>one point</b>.
 	</p>
-	<p id="result">score: 0</p>
 	<form name="quiz">
 		<div>
 			<label for="q1">1) This fruit is yellow and curved.</label>
@@ -78,6 +78,7 @@
 			<label for="q8c4">d) Candy</label>
 		</div><br>
 		<button type="button" onclick="submitQuiz()">Submit!</button>
+		<p id="result">???</p>
 		<div>
 			<img src="images/grass.jpg" id="photo1" alt="lawn full of grass" width="300" height="250"><br>
 			<label for="photo1">I should touch some grass.</label>
